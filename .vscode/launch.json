@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MsvcProductsApplication<msvc-products>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.oskar.springcloud.msvc.products.MsvcProductsApplication",
+            "projectName": "msvc-products",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
