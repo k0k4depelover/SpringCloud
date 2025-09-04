@@ -2,13 +2,15 @@ package com.oskar.springcloud.msvc.products.entities;
 
 import jakarta.persistence.GeneratedValue;
 
-import java.time.LocalDate;
 
+import java.time.LocalDate;
+import jakarta.persistence.Transient;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.GenerationType;
+
 
 @Entity
 
@@ -22,6 +24,17 @@ public class Product {
     
     @Column(name = "create_at")
     private LocalDate createdAt;
+
+    @Transient 
+    private int port;
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
 
     public Long getId() {
         return id;
