@@ -18,34 +18,40 @@ import com.oskar.springcloud.msvc.items.models.Product;
 import feign.FeignException;
 
 
-@Service
-public class ItemServiceFeign implements ItemService{
+@Service // Marca la clase como servicio de negocio
+public class ItemServiceFeign implements ItemService {
 
+    // Inyección automática del cliente Feign
     @Autowired
     private ProductFeignClient client;
 
-
-
+    /**
+     * Obtiene todos los productos desde el microservicio "msvc-products"
+     * y los transforma en Items agregando una cantidad aleatoria.
+     */
     @Override
     public List<Item> findAll() {
-        return client.findAll().stream().map(product -> {
-            Random random = new Random();
-            return new Item(product, 
-            random.nextInt(10) + 1);
-        }).collect(Collectors.toList());
+        return client.findAll() // <-- Aquí Feign llama al microservicio "msvc-products"
+            .stream()
+            .map(product -> {
+                Random random = new Random();
+                return new Item(product, random.nextInt(10) + 1); // Combina Product + cantidad
+            })
+            .collect(Collectors.toList());
     }
 
-
+    /**
+     * Obtiene un producto por id desde el microservicio "msvc-products"
+     * y lo transforma en un Item. Devuelve Optional.empty() si no existe.
+     */
     @Override
     public Optional<Item> findById(Long id) {
-        try{
-            Product product= client.details(id);
-            return Optional.of(new Item(product, new Random().nextInt(10)+1));
-        }
-        catch(FeignException e){
+        try {
+            Product product = client.details(id); // <-- Feign hace GET /products/{id}
+            return Optional.of(new Item(product, new Random().nextInt(10) + 1));
+        } catch (FeignException e) {
+            // Si ocurre un error HTTP (404, 500), se devuelve Optional vacío
             return Optional.empty();
         }
-
-        
     }
 }

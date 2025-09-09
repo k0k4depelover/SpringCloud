@@ -26,7 +26,8 @@ public class ProductServiceImpl implements ProductService {
     @Transactional(readOnly= true) //Sincronizar nuestros cambios con la base de datos
     // Esta anotación asegura que los cambios se realicen de manera atómica
     public List<Product> findAll() {
-
+    //Aca utilizamos el repositorio para obtener todos los productos de la base de datos
+    //Convertimos el Iterable a List usando streams
         return ((List<Product>) repository.findAll()).stream().map(
             product->{
                 product.setPort(Integer.parseInt(enviroment.getProperty("local.server.port")));

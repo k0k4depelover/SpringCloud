@@ -1,5 +1,9 @@
 package com.oskar.springcloud.msvc.items.models;
 
+/**
+ * Modelo que representa un Item, que es un Product con una cantidad.
+ */
+
 public class Item {
     private Product product;
     private int quantity;

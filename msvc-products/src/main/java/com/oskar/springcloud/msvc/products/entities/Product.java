@@ -15,6 +15,8 @@ import jakarta.persistence.GenerationType;
 @Entity
 
 @Table(name = "products")
+//Definimos la entidad Product y la tabla products
+//Debe coincidir con la base de datos
 public class Product {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)

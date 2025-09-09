@@ -2,6 +2,9 @@ package com.oskar.springcloud.msvc.items.models;
 
 import java.time.LocalDate;
 
+/**
+ * Modelo que representa un Producto.
+ */
 public class Product {
     
     private  Long id;
