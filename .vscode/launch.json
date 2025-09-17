@@ -1,6 +1,5 @@
 {
     "configurations": [
-        
         {
             "type": "java",
             "name": "Spring Boot-MsvcProductsApplication<msvc-products>",
@@ -9,7 +8,8 @@
             "mainClass": "com.oskar.springcloud.msvc.products.MsvcProductsApplication",
             "projectName": "msvc-products",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": ""
         },
         {
             "type": "java",
@@ -19,7 +19,8 @@
             "mainClass": "com.oskar.springcloud.msvc.items.MsvcItemsApplication",
             "projectName": "msvc-items",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=52286 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=msvc-items"
         },
         {
             "type": "java",
@@ -28,6 +29,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.oskar.springcloud.eurekaserver.app.eureka_server.EurekaServerApplication",
             "projectName": "eureka-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MsvcGatewayServerApplication<msvc-gateway-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.oskar.springcloud.app.gateway.msvc_gateway_server.MsvcGatewayServerApplication",
+            "projectName": "msvc-gateway-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
