@@ -1,5 +1,6 @@
 {
     "configurations": [
+        
         {
             "type": "java",
             "name": "Spring Boot-MsvcProductsApplication<msvc-products>",
@@ -17,6 +18,16 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.oskar.springcloud.msvc.items.MsvcItemsApplication",
             "projectName": "msvc-items",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaServerApplication<eureka-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.oskar.springcloud.eurekaserver.app.eureka_server.EurekaServerApplication",
+            "projectName": "eureka-server",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
